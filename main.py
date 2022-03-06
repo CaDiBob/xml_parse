@@ -3,7 +3,6 @@ import xml.dom.minidom as minidom
 
 from datetime import datetime
 from terminaltables import AsciiTable
-from pprint import pprint
 
 
 def add_argument_parser():
@@ -33,7 +32,7 @@ def add_argument_parser():
     parser.add_argument(
         '--direct_flights',
         action="store_true",
-        help='Прямые рейсы',
+        help='Прямые рейсы из Дубая в Бангкок',
     )
     return parser
 
@@ -120,8 +119,9 @@ def get_flight_time(departure, arrival):
     departure = get_format_date(departure)
     arrival = get_format_date(arrival)
     delta = arrival - departure
-    normal_time = timedelta_to_hms(delta)   
+    normal_time = timedelta_to_hms(delta)
     return normal_time
+
 
 def timedelta_to_hms(duration):
     days, seconds = duration.days, duration.seconds
@@ -162,8 +162,12 @@ def main():
         print('Билетов туда и обратно:', len(flights_2))
 
     if args.direct_flights:
-        print(get_table(direct_flights_1, title='Прямые рейсы'))
-        print(get_table(direct_flights_2, title='Прямые рейсы'))
+        print(get_table(
+            direct_flights_1, title='Прямые рейсы из Дубая в Бангкок'
+            ))
+        print(get_table(
+            direct_flights_2, title='Прямые рейсы из Дубая в Бангкок'
+            ))
 
 
 if __name__ == '__main__':

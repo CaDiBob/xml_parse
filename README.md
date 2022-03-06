@@ -37,5 +37,5 @@ python main.py --round_trip 'Билетов туда и обратно'
 ```
 
 ```bash
-python main.py --direct_flights 'Прямые рейсы'
+python main.py --direct_flights 'Прямые рейсы из Дубая в Бангкок'
 ```
