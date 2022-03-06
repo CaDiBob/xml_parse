@@ -35,3 +35,7 @@ python main.py --min_price 'Самая низкая стоимость пере�
 ```bash
 python main.py --round_trip 'Билетов туда и обратно'
 ```
+
+```bash
+python main.py --direct_flights 'Прямые рейсы'
+```
