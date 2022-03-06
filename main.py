@@ -11,7 +11,8 @@ def add_argument_parser():
     )
     parser.add_argument(
         '--count',
-        help='Количество рейсов'
+        action="store_true",
+        help='Общее количество рейсов',
     )
     return parser
 
