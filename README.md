@@ -20,22 +20,12 @@ python main.py
 
 ##### Принимает на вход аргументы
 
-```bash
-python main.py --count 'Общее количество рейсов'
-```
+`python main.py --count` 'Общее количество рейсов'
 
-```bash
-python main.py --max_price 'Самая дорогая стоимость перелета'
-```
+`python main.py --max_price` 'Самая дорогая стоимость перелета'
 
-```bash
-python main.py --min_price 'Самая низкая стоимость перелета'
-```
+`python main.py --min_price` 'Самая низкая стоимость перелета'
 
-```bash
-python main.py --round_trip 'Билетов туда и обратно'
-```
+`python main.py --round_trip` 'Билетов туда и обратно'
 
-```bash
-python main.py --direct_flights 'Прямые рейсы из Дубая в Бангкок'
-```
+`python main.py --direct_flights` 'Прямые рейсы из Дубая в Бангкок'
