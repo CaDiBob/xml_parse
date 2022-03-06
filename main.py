@@ -14,6 +14,16 @@ def add_argument_parser():
         action="store_true",
         help='Общее количество рейсов',
     )
+    parser.add_argument(
+        '--max_price',
+        action="store_true",
+        help='Самая дорогая стоимость перелета',
+    )
+    parser.add_argument(
+        '--min_price',
+        action="store_true",
+        help='Самая низкая стоимость перелета',
+    )
     return parser
 
 
@@ -65,7 +75,7 @@ def get_price_ticket(xml_file):
 
 def get_format_date(raw_date):
     date, time = raw_date.split("T")
-    processed_date = date +  f'T{time[:2]}:{time[2:]}'
+    processed_date = date + f'T{time[:2]}:{time[2:]}'
     processed_date = datetime.fromisoformat(processed_date)
     return processed_date
 
@@ -84,11 +94,15 @@ def main():
     flights_2 = get_flights('RS_Via-3.xml')
     prices_1 = get_price_ticket('RS_ViaOW.xml')
     prices_2 = get_price_ticket('RS_Via-3.xml')
-    flights_keys = [flight.get('code') for flight in flights_1]
-    diff = [flight for flight in flights_2 if not flight.get('code') in flights_keys]
 
     if args.count:
         print(len(flights_1)+len(flights_2))
+
+    if args.max_price:
+        print(max(prices_1 + prices_2))
+
+    if args.min_price:
+        print(min(prices_1 + prices_2))
 
 
 if __name__ == '__main__':
