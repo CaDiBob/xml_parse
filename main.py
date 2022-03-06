@@ -17,12 +17,17 @@ def add_argument_parser():
     parser.add_argument(
         '--max_price',
         action="store_true",
-        help='Самая дорогая стоимость перелета',
+        help='Самая высокая стоимость перелета',
     )
     parser.add_argument(
         '--min_price',
         action="store_true",
         help='Самая низкая стоимость перелета',
+    )
+    parser.add_argument(
+        '--round_trip',
+        action="store_true",
+        help='Билетов туда и обратно:',
     )
     return parser
 
@@ -96,13 +101,16 @@ def main():
     prices_2 = get_price_ticket('RS_Via-3.xml')
 
     if args.count:
-        print(len(flights_1)+len(flights_2))
+        print('Всего рейсов:', len(flights_1)+len(flights_2))
 
     if args.max_price:
-        print(max(prices_1 + prices_2))
+        print('Максимальная стоимость билета:', max(prices_1 + prices_2))
 
     if args.min_price:
-        print(min(prices_1 + prices_2))
+        print('Минимальная стоимость билета:', min(prices_1 + prices_2))
+
+    if args.round_trip:
+        print('Билетов туда и обратно:', len(flights_2))
 
 
 if __name__ == '__main__':
